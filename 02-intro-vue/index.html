@@ -8,8 +8,19 @@
 <body>
     
     <div id="myApp">
-        <h1>Batman quotes</h1>
-        <button @click="toggleAuthor">Toggle Author</button>
+        <h1>Batman quotes {{ totalQuotes }}</h1>
+        <input 
+            type="text" 
+            placeholder="Add Quote"
+            @keypress.enter="addQuote"
+            v-model="newMessage"  
+        >
+        
+        <br>
+        <br>
+
+        <button @click="showAuthor = !showAuthor">Toggle Author</button>
+        <!-- <button @click="addQuote">Add Quote</button> -->
         <hr>
 
         <ul>
