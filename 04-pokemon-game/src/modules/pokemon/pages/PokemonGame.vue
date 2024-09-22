@@ -32,6 +32,8 @@
       :correct-answer="randomPokemon.id"
       @selected-option="checkAnswer"
     />
+    <p>Numero de Asiertos: {{ correct_answers ?? 0 }}</p>
+    <p>Numero de desaciertos: {{ failures ?? 0 }}</p>
   </section>
 </template>
 
@@ -41,8 +43,16 @@ import PokemonOptions from '../components/PokemonOptions.vue';
 import { usePokemonGame } from '../composables/usePokemonGame';
 import { GameStatus } from '../interfaces';
 
-const { gameStatus, isLoading, randomPokemon, pokemonOptions, checkAnswer, getNextRound } =
-  usePokemonGame();
+const {
+  gameStatus,
+  isLoading,
+  randomPokemon,
+  pokemonOptions,
+  checkAnswer,
+  getNextRound,
+  correct_answers,
+  failures,
+} = usePokemonGame();
 
 const onSelectedOptions = (value: number) => {
   console.log({ value });

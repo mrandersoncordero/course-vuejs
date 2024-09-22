@@ -7,11 +7,14 @@ export const usePokemonGame = () => {
   const gameStatus = ref<GameStatus>(GameStatus.Playing);
   const pokemons = ref<Pokemon[]>([]);
   const pokemonOptions = ref<Pokemon[]>([]);
+  const correct_answers = ref(0);
+  const failures = ref(0);
 
   const randomPokemon = computed(() => {
     const randomIndex = Math.floor(Math.random() * pokemonOptions.value.length);
     return pokemonOptions.value[randomIndex];
   });
+
   const isLoading = computed(() => pokemons.value.length == 0);
 
   const getPokemons = async (): Promise<Pokemon[]> => {
@@ -48,9 +51,12 @@ export const usePokemonGame = () => {
         spread: 150,
         origin: { y: 0.6 },
       });
+
+      correct_answers.value += 1;
       return;
     }
     gameStatus.value = GameStatus.Lost;
+    failures.value += 1;
   };
 
   onMounted(async () => {
@@ -65,6 +71,8 @@ export const usePokemonGame = () => {
     isLoading,
     pokemonOptions,
     randomPokemon,
+    correct_answers,
+    failures,
 
     // Methods
     getNextRound,
