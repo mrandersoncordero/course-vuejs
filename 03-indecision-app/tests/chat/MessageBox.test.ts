@@ -22,4 +22,22 @@ describe('<MessageBox />', () => {
 
     expect((wrapper.vm as any).message).toBe(''); // evaluamos que el valor de message cambie a vacio
   });
+
+  test('emits sendMessage event when keypress.enter is triggered with message value', async () => {
+    const message = 'Hola mundo';
+
+    const input = wrapper.find('input[type="text"]');
+    await input.setValue(message); // asignamos un valor al input
+    await input.trigger('keypress.enter');
+
+    expect(wrapper.emitted('sendMessage')?.[0]).toEqual([message]); // evaluamos que el valor emitido sea igual a message
+  });
+
+  test('emits sendMessage event when keypress.enter is triggered with message value', async () => {
+    const wrapper = mount(MessageBox);
+    const input = wrapper.find('input[type="text"]');
+    await input.trigger('keypress.enter');
+
+    expect(wrapper.emitted('sendMessage')).toBeFalsy();
+  });
 });
