@@ -23,12 +23,14 @@ const chatRef = ref<HTMLDivElement | null>(null);
 watch(
   () => props.messages,
   (newMessages, oldMessages) => {
-    console.log('messages cambio', newMessages.length);
+    setTimeout(() => {
+      console.log('messages cambio', newMessages.length);
 
-    chatRef.value?.scrollTo({
-      top: chatRef.value.scrollHeight,
-      behavior: 'smooth',
-    });
+      chatRef.value?.scrollTo({
+        top: chatRef.value.scrollHeight,
+        behavior: 'smooth',
+      });
+    }, 100);
   },
   { deep: true },
 );
