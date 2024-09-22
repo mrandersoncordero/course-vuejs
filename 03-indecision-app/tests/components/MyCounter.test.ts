@@ -10,6 +10,7 @@ describe('<MyCounter />', () => {
       },
     });
 
+    // guardamos un snapshot y verificamos si el componente sigue igual
     expect(wrapper.html()).toMatchSnapshot();
   });
 
