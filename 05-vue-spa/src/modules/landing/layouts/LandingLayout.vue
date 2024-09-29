@@ -8,10 +8,15 @@
         </a>
       </div>
       <nav class="ml-auto space-x-4 flex items-center h-10 sm:space-x-6">
-        <RouterLink :to="{ name: 'home' }"> Home </RouterLink>
-        <RouterLink :to="{ name: 'features' }"> Features </RouterLink>
-        <RouterLink :to="{ name: 'pricing' }"> Pricing </RouterLink>
-        <RouterLink :to="{ name: 'contact' }"> Contact </RouterLink>
+        <div class="space-x-4">
+          <RouterLink :to="{ name: 'home' }"> Home </RouterLink>
+          <RouterLink :to="{ name: 'features' }"> Features </RouterLink>
+          <RouterLink :to="{ name: 'pricing' }"> Pricing </RouterLink>
+          <RouterLink :to="{ name: 'contact' }"> Contact </RouterLink>
+        </div>
+        <div class="space-x-4">
+          <RouterLink to="/auth">Login</RouterLink>
+        </div>
       </nav>
     </header>
     <!-- Fin Header -->
