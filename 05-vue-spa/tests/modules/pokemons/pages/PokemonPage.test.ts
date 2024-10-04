@@ -20,13 +20,13 @@ describe('<PokemonPage />', () => {
         expect(wrapper.find('img').attributes('src')).toBe(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg`)
         
         
-        console.log(wrapper.html());
+        // console.log(wrapper.html());
     });
 
     test('should redirect to the next pokemon', () => {
         const link = wrapper.findComponent(RouterLinkStub);
         
         expect(link.props().to).toEqual({ name: 'pokemon', params: { id: 26 } })
-        console.log(link.props());
+        // console.log(link.props());
     })
 })
