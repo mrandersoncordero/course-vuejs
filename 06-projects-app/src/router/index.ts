@@ -1,4 +1,6 @@
 import ProjectsLayout from '@/modules/projects/layouts/ProjectsLayout.vue';
+import ProjectsView from '@/modules/projects/views/ProjectsView.vue';
+import path from 'path';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -6,8 +8,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'projects',
+      name: 'home',
+      redirect: { name: 'projects' },
       component: ProjectsLayout,
+      children: [
+        {
+          path: 'projects',
+          name: 'projects',
+          component: ProjectsView,
+        },
+      ],
     },
   ],
 });

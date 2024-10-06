@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <!-- Top menu -->
     <top-menu />
-    <main>
+    <main class="flex flex-row">
       <!-- Side Menu -->
       <side-menu />
       <!-- RouterView -->
