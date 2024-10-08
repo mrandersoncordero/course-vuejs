@@ -16,6 +16,12 @@ const router = createRouter({
           name: 'projects',
           component: ProjectsView,
         },
+        {
+          path: 'project/:id',
+          props: true,
+          name: 'project',
+          component: () => import('@/modules/projects/views/ProjectView.vue'),
+        }
       ],
     },
   ],
