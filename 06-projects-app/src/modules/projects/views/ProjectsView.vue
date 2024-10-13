@@ -12,12 +12,21 @@
       </thead>
       <tbody>
         <!-- row 2 -->
-        <tr v-for="(project, index) in projectsStore.projectList" :key="project.id" class="hover">
-          <th>{{  index + 1 }}</th>
+        <tr
+          v-for="(project, index) in projectsStore.projectsWithCompletion"
+          :key="project.id"
+          class="hover"
+        >
+          <th>{{ index + 1 }}</th>
           <td>{{ project.name }}</td>
-          <td>{{ project.tasks.length }}</td>
+          <td>{{ project.taskCount }}</td>
           <td>
-            <progress class="progress progress-primary w-56" value="10" max="100"></progress>
+            <progress
+              class="progress progress-primary w-56"
+              :value="project.completion"
+              max="100"
+            ></progress>
+            {{ project.completion }}
           </td>
         </tr>
       </tbody>
@@ -77,7 +86,7 @@ const onNewValue = (projectName: string) => {
   projectsStore.projectList.push({
     id: '3',
     name: projectName,
-    tasks: []
-  })
+    tasks: [],
+  });
 };
 </script>
